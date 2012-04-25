@@ -294,8 +294,13 @@ highlight Pmenu ctermbg=238 gui=bold
 
 
 " Folding (View Save and Load) ************************************************
-au BufWinLeave * mkview
-au BufWinLeave * silent loadview
+" This stuff was effing with rails.vim paths...
+"au BufWinLeave * mkview
+"au BufWinLeave * silent loadview
+"autocmd BufReadPost *
+"    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"    \ exe "normal g`\"" |
+"    \ endif
 
 " -----------------------------------------------------------------------------  
 " |                              Plug-ins                                     |
