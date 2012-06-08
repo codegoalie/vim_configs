@@ -90,7 +90,7 @@ set splitbelow splitright
 "noremap ,h :split^M^W^W<cr>
 
 " Open the current file in a new vertical split
-noremap <silent> <leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+noremap <silent> <leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:set scb<CR><C-w>p:set scb<CR>:let &so=@z<CR>
 
 " Cursor highlights ***********************************************************
 set cursorline
@@ -185,13 +185,16 @@ imap <F3> <CR><C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><CR>
 nmap <leader>w :w!<cr>
 nmap <leader>m :w!<cr>
 
+" Quick Git Blame
+nmap <leader>g :Gblame<cr>
+
 " Fast editing of the .vimrc file
 map <leader>e :e! ~/.vimrc<cr>
 
 " Whem vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
-" set 7 lines to hte cursors - when movinf vertical.
+" set 7 lines to the cursors - when moving vertical.
 set so=7
 
 " Quick View Port (splits) Switching
@@ -199,6 +202,13 @@ map <C-l> <C-w>l
 map <C-k> <C-w>k
 map <C-j> <C-w>j
 map <C-h> <C-w>h
+
+" Move Tabs left and right with meta+<left> & meta+<right>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+" Toggle line numbers
+nnoremap <leader>l :set nonumber!<CR>
 
 " Directories *****************************************************************
 " Setup backup location and enable
@@ -342,8 +352,11 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 
 let g:CommandTMaxHeight = 15
 set wildignore+=*.o,*.obj,.git,*.pyc
-noremap <leader>j :CommandT<cr>
+"noremap <leader>j :CommandT<cr>
 noremap <leader>y :CommandTFlush<cr>
+
+" Ctrl-P *******************************************************************
+noremap <leader>j :CtrlP<cr>
 
 " AutoScrollMode ***********************************************************
 
