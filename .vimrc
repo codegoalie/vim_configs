@@ -165,6 +165,11 @@ match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 set nowrap
 set linebreak  " Wrap at word
 
+" custom vim-surround surroundings
+let g:surround_35 = "#{\r}"
+let g:surround_36 = "\"#{\r}\""
+let g:surround_37 = "<%= \r %>"
+
 
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
@@ -335,8 +340,8 @@ let NERDTreeMouseMode=1
 
 
 " fuzzyfinder_textmate ********************************************************
-map ,f :FuzzyFinderTextMate<CR>
-map ,b :FuzzyFinderBuffer<CR>
+"map ,f :FuzzyFinderTextMate<CR>
+"map ,b :FuzzyFinderBuffer<CR>
 "let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 
 " autocomplpop ***************************************************************
